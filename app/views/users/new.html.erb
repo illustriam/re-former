@@ -1,0 +1,44 @@
+<h2> Create new user! </h2>
+
+<!--
+<form action="/users" method="post" accept-charset="UTF-8">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+
+<label for="email"> Email: </label>
+<input type="text" id="email" name="user[email]">
+<label for="username"> Username: </label>
+<input type="text" id="username" name="user[username]">
+<label for="password"> Password: </label>
+<input type="password" id="password" name="user[password]">
+
+<input type="submit">
+
+
+
+</form>
+-->
+<!--
+<%= form_tag('/users', method: 'POST') do %>
+    <%= label_tag(:email, "Email:") %>
+    <%= text_field_tag(:email) %>
+    <%= label_tag(:username, "Username:") %>
+    <%= text_field_tag(:username) %>
+    <%= label_tag(:password, "Password:") %>
+    <%= text_field_tag(:password) %>
+
+    <%= submit_tag("Submit") %>
+<% end %>
+-->
+
+<%= form_for @user, url: {action: "create"}, html: {class: "odin-form"} do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "example@example.com" %> 
+    <%= f.label :username, "Your Username Here:" %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "password" %>
+
+    <%= f.submit %>
+
+<% end %>
